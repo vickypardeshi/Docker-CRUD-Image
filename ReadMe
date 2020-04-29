@@ -1,0 +1,89 @@
+Docker microservice with python(flask) and mysql 
+
+0] 
+How to implement microservice  (CRUD Operation) : 
+	We used Flask & mysql to implement this CRUD operations.We create database “myUsers” and create table “users”.  Our table user schema is:-
+
+User Object 
+{
+	ID : Integer ,
+	Name : Integer ,
+	Age : Integer ,
+	Department : String ,
+	Subject : List 
+}
+
+We write 4 API’s in flask :
+1) /add  :-  
+	In this API , take input from json file and insert user data into our database.We insert a user when method is POST.
+
+2) /users :- 
+	In this API , we fetch all users data from database and display it. In this API Method is GET.
+
+3) /update :-  
+	In this API, we update user data. API take input from json file and update user where user   Id = %(ID) from our datebase ID . In this API method is PUT .
+
+4) /delete/<int:ID> :-  http://localhost:8080/delete/ID
+	In this API , we delete user from database. It takes user id from API and delete that user where user Id = %ID (which is from API). In this API method is DELETE . 
+
+
+
+How to run the program :-
+	Firstly install all dependencies and then run program.
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+pip3 install -r  app/requirements.txt
+mysql -uroot -p < userDb.sql   
+
+Run Program :- 
+ 	python3 app.py
+	python3 config.py
+	python3 main.py
+
+How to build an micorservice image from our Dockerfile :- Extract my folder and run commands
+	
+	docker build  -t  myapp  . 
+	docker run  -it  myapp
+
+Go to postman and type http://127.0.0.1:5000  in the  address bar and see index page of our microservice app.
+
+
+i) For Create user :-  
+ 	For create(insert) user data, type http://localhost:8080/add  and select method “POST”  , provide data with json file into body section and click send button in postman. So API insert user data in our database.
+
+Json data :
+{
+    "ID": 18136,
+    "Name": "Vicky Pardeshi",
+    "Age": 23,
+    "Department": "PUSCD",
+    "Subject": "DevOps"
+}
+
+
+ii) For select (fetch all user or one user) :-
+	For select all users then type  http://localhost:8080/users and select method “GET” in postman. So we get all users data.
+	For select a user then type http://localhost:8080/user/ID and select method “GET” .So we get on user data.
+
+
+iii) For update user :-
+	For update user data, type  http://localhost:8080/update  and select method “PUT” , provide json file into body section and click send button in postman. So update user when id = ID
+
+Json data : -
+{
+	"ID":18107,
+	"Name":"Aniket Chavan",
+	"Age":25,
+	"Department":"PUCSD",
+	"Subject":"OS"
+}
+
+
+iv) For delete user :-
+	For delete a user, type http://localhost:8080/delete/ID  and select method “DELETE” in postman , so delete that user where user Id= ID (ID from API request).
+
+
+
+1]
+ADD github.link
+
