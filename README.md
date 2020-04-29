@@ -5,4 +5,5 @@ Docker microservice(CRUD operation) image using Dockerfile with mysql &amp; flas
 Bulid an image from Dockerfile : Run following commands
 
    docker build -t microservice .
+
    docker run -it microservice
