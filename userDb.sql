@@ -12,7 +12,7 @@ create table users(
 	Subject char(10)
 );
 
-insert users values(1813618, "Vicky Pardeshi", 23, "PUSCD", "DevOps");
+insert users values(18136, "Vicky Pardeshi", 23, "PUSCD", "DevOps");
 insert users values(18107, "Aniket Chavan", 28, "PUSCD", "OS");
 insert users values(18208, "Bhavesh Nandurikar", 23, "Math", "TCS");
 insert users values(18158, "Shubham Natekar", 22, "Stat", "DBMS");
